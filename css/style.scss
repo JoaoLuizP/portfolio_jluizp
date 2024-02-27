@@ -48,8 +48,10 @@ $darkslategray: #525252;
   }
 
 .img-card {
-  height: 100px;
-  padding: 25px;
+  height: auto;
+  max-width: 80%;
+  margin: auto;
+  display: block;
     
 }
 

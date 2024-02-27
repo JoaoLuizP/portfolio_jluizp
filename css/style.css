@@ -32,14 +32,14 @@
   padding: 25px;
 }
 
-.img-card {
-  height: 100px;
-  padding: 25px;
-}
-
 .card-title {
   padding-top: 10px;
   font-size: 16px;
+}
+
+.img-card {
+  height: 100px;
+  padding: 25px;
 }
 
 .flutuante {

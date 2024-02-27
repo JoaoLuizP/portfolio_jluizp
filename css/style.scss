@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@import 'sass/utils';
+
+$white: #ffffff;
+$midnightblack: #111111;
+$whitesmoke: #f8f8f8;
+$darkliver: #424530;
+$lightsteelblue: #B0C7DD;
+$mediumtaupe: #A58E74;
+$lightbrown: #ada49e;
+$teal: #999999;
+$darkslategray: #525252;
+
+
+.card:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .floating-text {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .card {
+    height: 250px;
+    padding: 25px;
+  
+  }
+
+  .card-title {
+    padding-top: 10px;
+    font-size: 16px;
+    
+  }
+
+ 
+.flutuante {
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+.flutuante.flutuando {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px);
+}
+  
+
+.flutuante:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes blink {
+    0% { color: $teal }
+    50% { color: $darkslategray }
+    100% { color: $teal }
+}
+
+.construcao {
+    text-align: center;
+    margin-top: 100px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: $white;
+    font-family: 'Karla', Arial, Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: $white;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: $midnightblack;
+    text-decoration: none;
+}
+
+ 
+
+.main-nav {
+    @include centerElement;
+    min-height: 70px;
+    padding: 0 40px;
+
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+}
+
+.logo-name {
+    margin-left: 5px;
+    font-size: 16px;
+    font-family: 'Karla', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    animation: blink 2s infinite;
+}
+
+.nav-list {
+    @include centerElement;
+    gap: 50px;
+}
+
+.nav-link {
+    transition: 0.7 ease;
+}
+
+.nav-link {
+    color: $midnightblack;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: $teal;
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3 ease-in-out;
+    transition: all 0.3 ease-in-out;
+    background-color: $darkslategray
+}
+
+.title {
+    color: $midnightblack;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.div-skills {
+    width: 50%;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: $midnightblack;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.circle-text {
+    text-align: center;
+    font-size: 24px;
+    color: $white;
+}
+
+.social-icons{
+    font-size: 25px;
+    gap: 10px;
+    padding: 0;
+    
+}
+
+.social-icons a {
+    color: $midnightblack;
+}
+
+.social-icons a:hover {
+    color: $darkslategray;
+}
+
+/* styles to section home */
+.section.home {
+    height: 100vh;
+    color: $midnightblack;
+    background-color: $white; 
+}
+
+.section.home div {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    text-align: left;
+}
+
+.section.home > div > h3 {
+    color: $teal;
+    padding-left: 2px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.section.home > div > h1 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+
+.container.skills {
+    padding: 50px 0 50px 0px;
+    margin-right: 0;
+}
+
+#portfolio {
+    background-color: $whitesmoke;
+}
+
+/* Estilos footer */
+.footer-page {
+    background-color: $midnightblack;
+    
+}
+
+.footer-page > p {
+    padding: 40px;
+    text-align: center;
+    color: $white;
+
+}
+
+  
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .hamburguer {
+        display: block;
+    }
+
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-list {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: $darkslategray;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 9999;
+
+    }
+
+    .nav-link {
+        color: $white;
+    }
+
+    .nav-link:hover {
+        color: $teal;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .nav-list.active {
+        left: 0;
+    }
+
+    .section.home div {
+        position: absolute;
+        top: 50%;
+        width: 75%;
+    }
+
+    .section.home > div > h1 {
+        font-size: 1.9rem;
+    }
+
+    .section.home > div > h3 {
+        font-size: 1rem;
+    }
+
+
+    .footer-page {
+        display: block;
+        z-index: auto;
+    }
+
+    .container.skills {
+        text-align: center;
+    }
+
+    .circles {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+    }
+    
+        
+    .circle-text {
+        text-align: center;
+        font-size: 16px;
+        color: $white;
+    }
+
+   
+}

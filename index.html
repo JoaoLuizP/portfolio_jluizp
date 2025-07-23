@@ -28,13 +28,15 @@
       <a class="navbar-item" href="#">
         <strong>João Luiz Pinheiro</strong>
       </a>
+    <!-- Botão de alternância de tema -->
+    <button id="toggle-theme" class="button is-white is-small" title="Alternar tema">
+      <span class="icon is-small">
+        <i class="bi bi-moon"></i>
+      </span>
+    </button>
     </div>
 
-    <!-- Botão de alternância de tema -->
-    <div style="position: fixed; top: 1rem; right: 1rem; z-index: 999;">
-      <button id="toggle-theme" class="button is-small is-dark">🌙 Modo Escuro</button>
-    </div>
-    
+
     <div class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="#about">Sobre</a>
@@ -176,28 +178,6 @@
       <p>&copy; 2025 João Luiz Pinheiro. Todos os direitos reservados.</p>
     </div>
   </footer>
+<script src="js/scripts.js"></script>
 </body>
 </html>
-
-<script>
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
-
-  // Carregar tema salvo
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    toggleBtn.textContent = '☀️ Modo Claro';
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-      toggleBtn.textContent = '☀️ Modo Claro';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      toggleBtn.textContent = '🌙 Modo Escuro';
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>

@@ -1,3 +1,4 @@
+// === MENU HAMBÚRGUER ===
 const hamburguer = document.querySelector('.hamburguer');
 const navList = document.querySelector('.nav-list');
 
@@ -11,6 +12,7 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
   navList.classList.remove('active');
 }));
 
+// === EFEITO FLUTUANTE AO ROLAR ===
 window.addEventListener('scroll', function() {
   var elementos = document.querySelectorAll('.flutuante');
   
@@ -27,27 +29,30 @@ window.addEventListener('scroll', function() {
   }
 });
 
-
-// === DARK MODE ===
+// === DARK MODE COM ÍCONE ===
 const toggleBtn = document.getElementById('toggle-theme');
+const themeIcon = toggleBtn?.querySelector('i');
 const body = document.body;
 
-// Carrega o tema salvo do localStorage
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   body.classList.add('dark-mode');
-  if (toggleBtn) toggleBtn.textContent = '☀️ Modo Claro';
+  if (themeIcon) {
+    themeIcon.classList.remove('bi-moon');
+    themeIcon.classList.add('bi-sun');
+  }
 }
 
 if (toggleBtn) {
   toggleBtn.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-      toggleBtn.textContent = '☀️ Modo Claro';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      toggleBtn.textContent = '🌙 Modo Escuro';
-      localStorage.setItem('theme', 'light');
+    const isDark = body.classList.contains('dark-mode');
+
+    if (themeIcon) {
+      themeIcon.classList.toggle('bi-moon', !isDark);
+      themeIcon.classList.toggle('bi-sun', isDark);
     }
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 }

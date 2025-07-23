@@ -9,8 +9,7 @@ hamburguer.addEventListener('click', () => {
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
   hamburguer.classList.remove('active');
   navList.classList.remove('active');
-}))
-
+}));
 
 window.addEventListener('scroll', function() {
   var elementos = document.querySelectorAll('.flutuante');
@@ -29,4 +28,26 @@ window.addEventListener('scroll', function() {
 });
 
 
+// === DARK MODE ===
+const toggleBtn = document.getElementById('toggle-theme');
+const body = document.body;
 
+// Carrega o tema salvo do localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  body.classList.add('dark-mode');
+  if (toggleBtn) toggleBtn.textContent = '☀️ Modo Claro';
+}
+
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '☀️ Modo Claro';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleBtn.textContent = '🌙 Modo Escuro';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
